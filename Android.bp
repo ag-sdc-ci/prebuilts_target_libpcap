@@ -1,0 +1,40 @@
+// Auto-generated prebuilt APEX Blueprint for external/libpcap
+// Staged from Extractive APEX package: ext-libpcap (org.blisslabs.ag.ext.libpcap)
+
+package {
+    default_applicable_licenses: ["external_libpcap_license"],
+}
+
+license {
+    name: "external_libpcap_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-BSD",
+        "SPDX-license-identifier-ISC",
+        "SPDX-license-identifier-MIT",
+    ],
+    license_text: [
+        "LICENSE",
+        "NOTICE",
+    ],
+}
+
+cc_prebuilt_library {
+    name: "libpcap",
+    host_supported: true,
+    vendor_available: true,
+    check_elf_files: false,
+    export_include_dirs: [
+        "include",
+        "include/pcap",
+    ],
+    static: {
+        srcs: ["lib/libpcap.a"],
+    },
+    shared: {
+        srcs: ["lib/libpcap.so"],
+    },
+    prefer: true,
+    sdk_version: "29",
+}
